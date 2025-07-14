@@ -239,7 +239,7 @@ void launch_projection_ewa_3dgs_fused_fwd_kernel(
     uint32_t B = means.numel() / (N * 3);    // number of batches
 
     int64_t n_elements = B * C * N;
-    dim3 threads(256);
+    dim3 threads(512);
     dim3 grid((n_elements + threads.x - 1) / threads.x);
     int64_t shmem_size = 0; // No shared memory used in this kernel
 
